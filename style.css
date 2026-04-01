@@ -1,0 +1,154 @@
+/* 1. Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* ทำให้เวลาคลิกเมนูแล้วเลื่อนนุ่มนวล */
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 2. Scroll Progress Indicator */
+.scroll-indicator {
+    width: 100%;
+    height: 8px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2000;
+    background: rgba(244, 238, 238, 0.8);
+    backdrop-filter: blur(2px);
+    /*visibility: hidden;*/
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #007bff, #00d4ff);
+    transition: width 0.25s ease-out;
+}
+
+
+/* 3. Navbar */
+header {
+    background: #bcec0e;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+}
+
+.nav-list li {
+    margin-left: 25px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-list a:hover {
+    color: #007bff;
+}
+
+/* 4. Sections & Content */
+section {
+    padding: 100px 0;
+    /* เว้นระยะห่างระหว่างเซกชัน */
+    min-height: 80vh;
+    /* ให้แต่ละเซกชันมีความสูงพอที่จะทดสอบการ Scroll */
+}
+
+.header {
+    background: linear-gradient(rgba(0, 123, 255, 0.1), rgba(0, 0, 0, 0)), url('https://picsum.photos/1920/1080');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+}
+
+.container-box {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 2rem;
+    color: #222;
+}
+
+/* 5. Flexbox Layout สำหรับ Content */
+.flex {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.flex img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.flex p {
+    flex: 1;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* 6. Responsive Design */
+@media (max-width: 768px) {
+    .flex {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-list {
+        display: none;
+        /* สำหรับมือถืออาจจะต้องทำ Hamburger Menu เพิ่มเติม */
+    }
+}
